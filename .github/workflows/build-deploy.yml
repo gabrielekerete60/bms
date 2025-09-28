@@ -8,7 +8,6 @@ on:
 jobs:
   build_and_save:
     runs-on: ubuntu-latest
-    # Job-level ENV (Default for the actual optimized build phase)
     env:
       NODE_ENV: production
     
@@ -22,14 +21,15 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      # FINAL FIX: Install all dependencies (including dev) by setting NODE_ENV in the run command.
       - name: Install Dependencies (Including Dev)
-        run: NODE_ENV=development npm install
+        env:
+          # Sets NODE_ENV to development for install to ensure dev dependencies (like TypeScript) are included.
+          NODE_ENV: development
+        run: npm install
 
       - name: Run Next.js Server Build
-        # This creates the .next folder. NODE_ENV reverts back to 'production' for the build.
+        # This creates the .next folder. NODE_ENV reverts back to 'production' for the optimized build.
         env:
-          # Inject all required public and server-side secrets needed at build time
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
           NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
@@ -44,10 +44,12 @@ jobs:
           
         run: npm run build
 
-      - name: Upload .next Folder as Artifact
-        # This saves the contents of the .next folder so you can download it later.
+      - name: Upload .next Folder as Artifact (CRITICAL FIX)
+        # This saves the contents of the .next folder so you can download it.
         uses: actions/upload-artifact@v4
         with:
           name: next-build-output
           path: .next
-          retention-days: 7 # Artifacts are kept for a week
+          retention-days: 7
+          # FIX: Explicitly include hidden files like .next/
+          include-hidden-files: true
