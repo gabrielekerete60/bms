@@ -34,6 +34,6 @@ git commit -m "Initial clean push with CI/CD workflow"
 
 # Push to remote
 Write-Host "Launching app to GitHub..." -ForegroundColor Cyan
-git push -u origin main
+git push --force --set-upstream origin main
 
 Write-Host "`n🚀 SETUP COMPLETE. Your project is launched! Check GitHub Actions now." -ForegroundColor Green

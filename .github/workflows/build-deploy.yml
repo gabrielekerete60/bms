@@ -1,0 +1,55 @@
+﻿name: Next.js Server Build and Artifact Save
+
+on:
+  push:
+    branches:
+      - main # Trigger on pushes to the main branch
+
+jobs:
+  build_and_save:
+    runs-on: ubuntu-latest
+    env:
+      # We set NODE_ENV to production for the actual build step (npm run build)
+      NODE_ENV: production
+    
+    steps:
+      - name: Checkout Source Code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js Environment
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install Dependencies (CRITICAL: Includes TypeScript)
+        # Temporarily set NODE_ENV to development to ensure dev dependencies like TypeScript are installed.
+        env:
+          NODE_ENV: development
+        run: npm install
+
+      - name: Run Next.js Server Build
+        # This creates the .next folder. We revert back to NODE_ENV: production for the optimized build.
+        env:
+          # Inject all required public and server-side secrets needed at build time
+          NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
+          NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
+          NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
+          NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ${{ secrets.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET }}
+          NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
+          NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
+          NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
+          
+          NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY }}
+          PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_SECRET_KEY }}
+          SEED_PASSWORD: ${{ secrets.SEED_PASSWORD }}
+          
+        run: npm run build
+
+      - name: Upload .next Folder as Artifact
+        # This saves the contents of the .next folder so you can download it later.
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build-output
+          path: .next
+          retention-days: 7 # Artifacts are kept for a week
