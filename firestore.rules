@@ -1,0 +1,21 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+  
+    // ====================================================================
+    // ‼️ DEVELOPMENT-ONLY RULES - DATABASE IS OPEN ‼️
+    // ====================================================================
+    // This ruleset allows ANYONE to read, write, and delete data from
+    // your database. It is intended ONLY for local development to allow
+    // tools like the database seeder to work without authentication.
+    //
+    // 🛑 BEFORE GOING TO PRODUCTION, you MUST replace these rules with
+    // a secure ruleset that properly protects your data.
+    // ====================================================================
+
+    match /{document=**} {
+      allow read, write: if true;
+    }
+  }
+}
