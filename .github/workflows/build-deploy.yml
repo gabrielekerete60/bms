@@ -8,8 +8,8 @@ on:
 jobs:
   build_and_save:
     runs-on: ubuntu-latest
+    # Job-level ENV (Default for the actual optimized build phase)
     env:
-      # We set NODE_ENV to production for the actual build step (npm run build)
       NODE_ENV: production
     
     steps:
@@ -22,14 +22,12 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install Dependencies (CRITICAL: Includes TypeScript)
-        # Temporarily set NODE_ENV to development to ensure dev dependencies like TypeScript are installed.
-        env:
-          NODE_ENV: development
-        run: npm install
+      # FINAL FIX: Install all dependencies (including dev) by setting NODE_ENV in the run command.
+      - name: Install Dependencies (Including Dev)
+        run: NODE_ENV=development npm install
 
       - name: Run Next.js Server Build
-        # This creates the .next folder. We revert back to NODE_ENV: production for the optimized build.
+        # This creates the .next folder. NODE_ENV reverts back to 'production' for the build.
         env:
           # Inject all required public and server-side secrets needed at build time
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
