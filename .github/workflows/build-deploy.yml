@@ -3,14 +3,12 @@
 on:
   push:
     branches:
-      - main # Trigger on pushes to the main branch
+      - main
 
 jobs:
   build_and_save:
     runs-on: ubuntu-latest
-    env:
-      NODE_ENV: production
-      
+
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -21,14 +19,11 @@ jobs:
           node-version: '20'
           cache: 'npm'
 
-      - name: Install Dependencies (Including Dev)
-        env:
-          # Sets NODE_ENV to development for install to ensure dev dependencies are included.
-          NODE_ENV: development
+      - name: Install Dependencies
         run: npm install
 
       - name: Run Next.js Server Build
-        # This creates the .next folder. NODE_ENV reverts back to 'production' for the optimized build.
+        run: npm run build
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
@@ -42,11 +37,12 @@ jobs:
           PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_SECRET_KEY }}
           SEED_PASSWORD: ${{ secrets.SEED_PASSWORD }}
           
-        run: npm run build
+      # --- DEBUGGING STEP ADDED HERE ---
+      - name: List files in the directory
+        run: ls -R
 
       - name: Upload .next Folder as Artifact
-        # This saves the contents of the .next folder so you can download it.
         uses: actions/upload-artifact@v4
         with:
           name: next-build-output
-          path: .next
+          path: ./.next
