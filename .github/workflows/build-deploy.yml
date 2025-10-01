@@ -37,10 +37,21 @@ jobs:
           PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_SECRET_KEY }}
           SEED_PASSWORD: ${{ secrets.SEED_PASSWORD }}
           
+      # --- NEW DEBUGGING STEPS ---
+      - name: Check for .next folder and create a test file
+        run: |
+          if [ -d ".next" ]; then
+            echo "✅ .next folder found. Attempting to create test file."
+            echo "hello world" > .next/test-file.txt
+          else
+            echo "❌ .next folder NOT found."
+          fi
+
+      - name: List files after creating test file
+        run: ls -R
+
       - name: Upload .next Folder as Artifact
         uses: actions/upload-artifact@v4
         with:
           name: next-build-output
-          # --- CRITICAL FIX HERE ---
-          # Removed the "./" from the path
           path: .next
