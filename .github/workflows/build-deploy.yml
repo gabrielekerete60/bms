@@ -1,4 +1,4 @@
-﻿name: Next.js Server Build and Artifact Save
+﻿name: Build and Deploy Next.js App
 
 on:
   push:
@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       NODE_ENV: production
-    
+      
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -23,7 +23,7 @@ jobs:
 
       - name: Install Dependencies (Including Dev)
         env:
-          # Sets NODE_ENV to development for install to ensure dev dependencies (like TypeScript) are included.
+          # Sets NODE_ENV to development for install to ensure dev dependencies are included.
           NODE_ENV: development
         run: npm install
 
@@ -46,4 +46,7 @@ jobs:
 
       - name: Upload .next Folder as Artifact
         # This saves the contents of the .next folder so you can download it.
-        uses: actions/
+        uses: actions/upload-artifact@v4
+        with:
+          name: next-build-output
+          path: .next
