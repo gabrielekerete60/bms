@@ -1,9 +1,11 @@
-
-import type {NextConfig} from 'next';
+import type { NextConfig } from 'next';
 import 'dotenv/config';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // --- ADD THIS LINE ---
+  distDir: 'build',
+  // --------------------
+
   typescript: {
     ignoreBuildErrors: true,
   },

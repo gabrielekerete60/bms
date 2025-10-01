@@ -1,4 +1,7 @@
-﻿name: Build and Upload Artifact
+﻿# This workflow builds the Next.js project and commits the build output
+# to the 'build' directory in the main branch.
+
+name: Build and Commit
 
 on:
   push:
@@ -6,9 +9,8 @@ on:
       - main
 
 jobs:
-  build_and_upload:
+  build-and-commit:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Source Code
         uses: actions/checkout@v4
@@ -22,7 +24,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Next.js Build
+      - name: Build Next.js Project
         run: npm run build
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
@@ -32,13 +34,21 @@ jobs:
           NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
           NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
           NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
-
           NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY }}
           PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_SECRET_KEY }}
           SEED_PASSWORD: ${{ secrets.SEED_PASSWORD }}
-
-      - name: Upload Build Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build-output
-          path: .next
+          
+      - name: Commit build folder to main branch
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          # Use -f to force add the build folder, as it might be in .gitignore
+          git add -f ./build
+          # Check if there are any changes to commit
+          if git diff --staged --quiet; then
+            echo "No changes to commit."
+          else
+            # The [skip ci] in the commit message is crucial to prevent an infinite loop of workflows.
+            git commit -m "CI: Add build output [skip ci]"
+            git push
+          
