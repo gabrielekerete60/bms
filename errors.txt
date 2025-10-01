@@ -1,0 +1,609 @@
+2025-10-01T16:14:36.8668165Z Current runner version: '2.328.0'
+2025-10-01T16:14:36.8693771Z ##[group]Runner Image Provisioner
+2025-10-01T16:14:36.8694823Z Hosted Compute Agent
+2025-10-01T16:14:36.8695480Z Version: 20250912.392
+2025-10-01T16:14:36.8696182Z Commit: d921fda672a98b64f4f82364647e2f10b2267d0b
+2025-10-01T16:14:36.8696961Z Build Date: 2025-09-12T15:23:14Z
+2025-10-01T16:14:36.8697655Z ##[endgroup]
+2025-10-01T16:14:36.8698296Z ##[group]Operating System
+2025-10-01T16:14:36.8698950Z Ubuntu
+2025-10-01T16:14:36.8699561Z 24.04.3
+2025-10-01T16:14:36.8700260Z LTS
+2025-10-01T16:14:36.8700880Z ##[endgroup]
+2025-10-01T16:14:36.8701554Z ##[group]Runner Image
+2025-10-01T16:14:36.8702224Z Image: ubuntu-24.04
+2025-10-01T16:14:36.8702850Z Version: 20250922.53.1
+2025-10-01T16:14:36.8704265Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20250922.53/images/ubuntu/Ubuntu2404-Readme.md
+2025-10-01T16:14:36.8706086Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20250922.53
+2025-10-01T16:14:36.8707179Z ##[endgroup]
+2025-10-01T16:14:36.8708465Z ##[group]GITHUB_TOKEN Permissions
+2025-10-01T16:14:36.8710506Z Contents: read
+2025-10-01T16:14:36.8711222Z Metadata: read
+2025-10-01T16:14:36.8711808Z Packages: read
+2025-10-01T16:14:36.8712786Z ##[endgroup]
+2025-10-01T16:14:36.8715434Z Secret source: Actions
+2025-10-01T16:14:36.8716265Z Prepare workflow directory
+2025-10-01T16:14:36.9051649Z Prepare all required actions
+2025-10-01T16:14:36.9110787Z Getting action download info
+2025-10-01T16:14:37.4151196Z Download action repository 'actions/checkout@v4' (SHA:08eba0b27e820071cde6df949e0beb9ba4906955)
+2025-10-01T16:14:37.5736802Z Download action repository 'actions/setup-node@v4' (SHA:49933ea5288caeca8642d1e84afbd3f7d6820020)
+2025-10-01T16:14:37.7832507Z Complete job name: build-and-commit
+2025-10-01T16:14:37.8569391Z ##[group]Run actions/checkout@v4
+2025-10-01T16:14:37.8570336Z with:
+2025-10-01T16:14:37.8570864Z   repository: gabrielekerete60/bms
+2025-10-01T16:14:37.8571631Z   token: ***
+2025-10-01T16:14:37.8572109Z   ssh-strict: true
+2025-10-01T16:14:37.8572577Z   ssh-user: git
+2025-10-01T16:14:37.8573038Z   persist-credentials: true
+2025-10-01T16:14:37.8573851Z   clean: true
+2025-10-01T16:14:37.8574335Z   sparse-checkout-cone-mode: true
+2025-10-01T16:14:37.8574885Z   fetch-depth: 1
+2025-10-01T16:14:37.8575346Z   fetch-tags: false
+2025-10-01T16:14:37.8575808Z   show-progress: true
+2025-10-01T16:14:37.8576269Z   lfs: false
+2025-10-01T16:14:37.8576689Z   submodules: false
+2025-10-01T16:14:37.8577153Z   set-safe-directory: true
+2025-10-01T16:14:37.8577957Z ##[endgroup]
+2025-10-01T16:14:37.9670429Z Syncing repository: gabrielekerete60/bms
+2025-10-01T16:14:37.9673232Z ##[group]Getting Git version info
+2025-10-01T16:14:37.9674613Z Working directory is '/home/runner/work/bms/bms'
+2025-10-01T16:14:37.9676415Z [command]/usr/bin/git version
+2025-10-01T16:14:37.9771247Z git version 2.51.0
+2025-10-01T16:14:37.9800340Z ##[endgroup]
+2025-10-01T16:14:37.9818576Z Temporarily overriding HOME='/home/runner/work/_temp/0dafcbfb-1d47-4ab3-87ee-7fcc985b4bcb' before making global git config changes
+2025-10-01T16:14:37.9822314Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-01T16:14:37.9834674Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bms/bms
+2025-10-01T16:14:37.9880203Z Deleting the contents of '/home/runner/work/bms/bms'
+2025-10-01T16:14:37.9884830Z ##[group]Initializing the repository
+2025-10-01T16:14:37.9891026Z [command]/usr/bin/git init /home/runner/work/bms/bms
+2025-10-01T16:14:38.0032436Z hint: Using 'master' as the name for the initial branch. This default branch name
+2025-10-01T16:14:38.0034387Z hint: is subject to change. To configure the initial branch name to use in all
+2025-10-01T16:14:38.0036052Z hint: of your new repositories, which will suppress this warning, call:
+2025-10-01T16:14:38.0037229Z hint:
+2025-10-01T16:14:38.0038084Z hint: 	git config --global init.defaultBranch <name>
+2025-10-01T16:14:38.0038764Z hint:
+2025-10-01T16:14:38.0039632Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2025-10-01T16:14:38.0040590Z hint: 'development'. The just-created branch can be renamed via this command:
+2025-10-01T16:14:38.0041334Z hint:
+2025-10-01T16:14:38.0041761Z hint: 	git branch -m <name>
+2025-10-01T16:14:38.0042259Z hint:
+2025-10-01T16:14:38.0042948Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2025-10-01T16:14:38.0044458Z Initialized empty Git repository in /home/runner/work/bms/bms/.git/
+2025-10-01T16:14:38.0053756Z [command]/usr/bin/git remote add origin https://github.com/gabrielekerete60/bms
+2025-10-01T16:14:38.0097921Z ##[endgroup]
+2025-10-01T16:14:38.0098750Z ##[group]Disabling automatic garbage collection
+2025-10-01T16:14:38.0104172Z [command]/usr/bin/git config --local gc.auto 0
+2025-10-01T16:14:38.0137938Z ##[endgroup]
+2025-10-01T16:14:38.0138733Z ##[group]Setting up auth
+2025-10-01T16:14:38.0147788Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-01T16:14:38.0183361Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-01T16:14:38.0556517Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-01T16:14:38.0589293Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-01T16:14:38.0815097Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2025-10-01T16:14:38.0851705Z ##[endgroup]
+2025-10-01T16:14:38.0854062Z ##[group]Fetching the repository
+2025-10-01T16:14:38.0861563Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +d962164693eee211c21daf08d3fcb3b3b7ed03b9:refs/remotes/origin/main
+2025-10-01T16:14:38.5591203Z From https://github.com/gabrielekerete60/bms
+2025-10-01T16:14:38.5592134Z  * [new ref]         d962164693eee211c21daf08d3fcb3b3b7ed03b9 -> origin/main
+2025-10-01T16:14:38.5624921Z ##[endgroup]
+2025-10-01T16:14:38.5626213Z ##[group]Determining the checkout info
+2025-10-01T16:14:38.5627622Z ##[endgroup]
+2025-10-01T16:14:38.5632504Z [command]/usr/bin/git sparse-checkout disable
+2025-10-01T16:14:38.5671961Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2025-10-01T16:14:38.5698630Z ##[group]Checking out the ref
+2025-10-01T16:14:38.5701995Z [command]/usr/bin/git checkout --progress --force -B main refs/remotes/origin/main
+2025-10-01T16:14:38.5855831Z Switched to a new branch 'main'
+2025-10-01T16:14:38.5858628Z branch 'main' set up to track 'origin/main'.
+2025-10-01T16:14:38.5865173Z ##[endgroup]
+2025-10-01T16:14:38.5898176Z [command]/usr/bin/git log -1 --format=%H
+2025-10-01T16:14:38.5919434Z d962164693eee211c21daf08d3fcb3b3b7ed03b9
+2025-10-01T16:14:38.6158599Z ##[group]Run actions/setup-node@v4
+2025-10-01T16:14:38.6159300Z with:
+2025-10-01T16:14:38.6159800Z   node-version: 20
+2025-10-01T16:14:38.6160304Z   cache: npm
+2025-10-01T16:14:38.6160740Z   always-auth: false
+2025-10-01T16:14:38.6161216Z   check-latest: false
+2025-10-01T16:14:38.6161848Z   token: ***
+2025-10-01T16:14:38.6162281Z ##[endgroup]
+2025-10-01T16:14:38.7947863Z Found in cache @ /opt/hostedtoolcache/node/20.19.5/x64
+2025-10-01T16:14:38.7954900Z ##[group]Environment details
+2025-10-01T16:14:41.0650483Z node: v20.19.5
+2025-10-01T16:14:41.0651189Z npm: 10.8.2
+2025-10-01T16:14:41.0653221Z yarn: 1.22.22
+2025-10-01T16:14:41.0655304Z ##[endgroup]
+2025-10-01T16:14:41.0679340Z [command]/opt/hostedtoolcache/node/20.19.5/x64/bin/npm config get cache
+2025-10-01T16:14:41.4588473Z /home/runner/.npm
+2025-10-01T16:14:41.7930952Z Cache hit for: node-cache-Linux-x64-npm-e3fd6db94029cd11a2aa490d80bf48fc53bd37682873e5156af569ddf8eff165
+2025-10-01T16:14:43.1217024Z Received 0 of 216780928 (0.0%), 0.0 MBs/sec
+2025-10-01T16:14:44.1226952Z Received 96468992 of 216780928 (44.5%), 46.0 MBs/sec
+2025-10-01T16:14:45.1222455Z Received 208392320 of 216780928 (96.1%), 66.2 MBs/sec
+2025-10-01T16:14:45.2830579Z Received 216780928 of 216780928 (100.0%), 65.4 MBs/sec
+2025-10-01T16:14:45.2831543Z Cache Size: ~207 MB (216780928 B)
+2025-10-01T16:14:45.2869690Z [command]/usr/bin/tar -xf /home/runner/work/_temp/1aac78da-1792-4d05-b5c2-f3e33877c626/cache.tzst -P -C /home/runner/work/bms/bms --use-compress-program unzstd
+2025-10-01T16:14:45.7207620Z Cache restored successfully
+2025-10-01T16:14:45.7632540Z Cache restored from key: node-cache-Linux-x64-npm-e3fd6db94029cd11a2aa490d80bf48fc53bd37682873e5156af569ddf8eff165
+2025-10-01T16:14:45.7803892Z ##[group]Run npm install
+2025-10-01T16:14:45.7804283Z [36;1mnpm install[0m
+2025-10-01T16:14:45.7916693Z shell: /usr/bin/bash -e {0}
+2025-10-01T16:14:45.7917002Z ##[endgroup]
+2025-10-01T16:14:53.9867835Z npm warn deprecated @types/handlebars@4.1.0: This is a stub types definition. handlebars provides its own type definitions, so you do not need this installed.
+2025-10-01T16:14:54.0273687Z npm warn deprecated inflight@1.0.6: This module is not supported, and leaks memory. Do not use it. Check out lru-cache if you want a good and tested way to coalesce async requests by a key value, which is much more comprehensive and powerful.
+2025-10-01T16:14:54.1079628Z npm warn deprecated rimraf@2.7.1: Rimraf versions prior to v4 are no longer supported
+2025-10-01T16:14:54.2922432Z npm warn deprecated glob@7.2.3: Glob versions prior to v9 are no longer supported
+2025-10-01T16:15:04.3371328Z 
+2025-10-01T16:15:04.3372254Z added 836 packages, and audited 837 packages in 18s
+2025-10-01T16:15:04.3381742Z 
+2025-10-01T16:15:04.3382776Z 110 packages are looking for funding
+2025-10-01T16:15:04.3383248Z   run `npm fund` for details
+2025-10-01T16:15:04.3933112Z 
+2025-10-01T16:15:04.3934467Z 9 vulnerabilities (5 low, 2 moderate, 1 high, 1 critical)
+2025-10-01T16:15:04.3935074Z 
+2025-10-01T16:15:04.3935563Z To address issues that do not require attention, run:
+2025-10-01T16:15:04.3936757Z   npm audit fix
+2025-10-01T16:15:04.3936963Z 
+2025-10-01T16:15:04.3937138Z To address all issues, run:
+2025-10-01T16:15:04.3937507Z   npm audit fix --force
+2025-10-01T16:15:04.3937741Z 
+2025-10-01T16:15:04.3937904Z Run `npm audit` for details.
+2025-10-01T16:15:04.4902710Z ##[group]Run npm run build
+2025-10-01T16:15:04.4903061Z [36;1mnpm run build[0m
+2025-10-01T16:15:04.4937445Z shell: /usr/bin/bash -e {0}
+2025-10-01T16:15:04.4937713Z env:
+2025-10-01T16:15:04.4938292Z   NEXT_PUBLIC_FIREBASE_API_KEY: ***
+2025-10-01T16:15:04.4938781Z   NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ***
+2025-10-01T16:15:04.4939180Z   NEXT_PUBLIC_FIREBASE_PROJECT_ID: ***
+2025-10-01T16:15:04.4939606Z   NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET: ***
+2025-10-01T16:15:04.4939955Z   NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ***
+2025-10-01T16:15:04.4940361Z   NEXT_PUBLIC_FIREBASE_APP_ID: ***
+2025-10-01T16:15:04.4940673Z   NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ***
+2025-10-01T16:15:04.4941114Z   NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY: ***
+2025-10-01T16:15:04.4941477Z   PAYSTACK_SECRET_KEY: ***
+2025-10-01T16:15:04.4941740Z   SEED_PASSWORD: ***
+2025-10-01T16:15:04.4941957Z ##[endgroup]
+2025-10-01T16:15:04.6094774Z 
+2025-10-01T16:15:04.6095406Z > nextn@0.1.0 build
+2025-10-01T16:15:04.6095902Z > next build
+2025-10-01T16:15:04.6096078Z 
+2025-10-01T16:15:05.2092941Z ⚠ No build cache found. Please configure build caching for faster rebuilds. Read more: https://nextjs.org/docs/messages/no-cache
+2025-10-01T16:15:05.2343229Z Attention: Next.js now collects completely anonymous telemetry regarding usage.
+2025-10-01T16:15:05.2344631Z This information is used to shape Next.js' roadmap and prioritize features.
+2025-10-01T16:15:05.2346089Z You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+2025-10-01T16:15:05.2346844Z https://nextjs.org/telemetry
+2025-10-01T16:15:05.2347044Z 
+2025-10-01T16:15:05.3384688Z    ▲ Next.js 15.3.3
+2025-10-01T16:15:05.3385704Z 
+2025-10-01T16:15:05.3778973Z    Creating an optimized production build ...
+2025-10-01T16:15:34.9146642Z  ✓ Compiled successfully in 26.0s
+2025-10-01T16:15:34.9189638Z    Skipping validation of types
+2025-10-01T16:15:34.9192968Z    Skipping linting
+2025-10-01T16:15:35.1611355Z    Collecting page data ...
+2025-10-01T16:15:39.9033911Z    Generating static pages (0/31) ...
+2025-10-01T16:15:41.0589011Z    Generating static pages (7/31) 
+2025-10-01T16:15:41.0597116Z    Generating static pages (15/31) 
+2025-10-01T16:15:41.0606612Z    Generating static pages (23/31) 
+2025-10-01T16:15:41.0607590Z  ✓ Generating static pages (31/31)
+2025-10-01T16:15:41.4391095Z    Finalizing page optimization ...
+2025-10-01T16:15:41.4394327Z    Collecting build traces ...
+2025-10-01T16:15:47.6650307Z 
+2025-10-01T16:15:47.6685585Z Route (app)                                 Size  First Load JS
+2025-10-01T16:15:47.6686963Z ┌ ○ /                                    7.51 kB         241 kB
+2025-10-01T16:15:47.6687882Z ├ ○ /_not-found                            151 B         102 kB
+2025-10-01T16:15:47.6688546Z ├ ○ /dashboard                           7.38 kB         370 kB
+2025-10-01T16:15:47.6689179Z ├ ○ /dashboard/accounting                24.5 kB         407 kB
+2025-10-01T16:15:47.6689831Z ├ ○ /dashboard/communication               14 kB         276 kB
+2025-10-01T16:15:47.6690721Z ├ ○ /dashboard/customers/profiles        6.02 kB         265 kB
+2025-10-01T16:15:47.6691467Z ├ ○ /dashboard/database-tools            2.66 kB         269 kB
+2025-10-01T16:15:47.6692124Z ├ ○ /dashboard/deliveries                5.97 kB         399 kB
+2025-10-01T16:15:47.6692780Z ├ ○ /dashboard/documentation             8.38 kB         118 kB
+2025-10-01T16:15:47.6693659Z ├ ○ /dashboard/inventory/ingredients     8.59 kB         298 kB
+2025-10-01T16:15:47.6694560Z ├ ○ /dashboard/inventory/other-supplies  9.14 kB         275 kB
+2025-10-01T16:15:47.6695105Z ├ ○ /dashboard/inventory/products        8.02 kB         281 kB
+2025-10-01T16:15:47.6695654Z ├ ○ /dashboard/inventory/recipes         10.9 kB         324 kB
+2025-10-01T16:15:47.6696195Z ├ ○ /dashboard/inventory/stock--control  13.1 kB         298 kB
+2025-10-01T16:15:47.6696714Z ├ ○ /dashboard/inventory/stock-control   10.9 kB         303 kB
+2025-10-01T16:15:47.6697952Z ├ ○ /dashboard/inventory/suppliers         10 kB         282 kB
+2025-10-01T16:15:47.6698928Z ├ ○ /dashboard/inventory/waste-logs      8.49 kB         270 kB
+2025-10-01T16:15:47.6699869Z ├ ○ /dashboard/orders/regular            12.1 kB         298 kB
+2025-10-01T16:15:47.6700717Z ├ ○ /dashboard/pos                       15.9 kB         285 kB
+2025-10-01T16:15:47.6701554Z ├ ○ /dashboard/promotions                8.56 kB         326 kB
+2025-10-01T16:15:47.6702317Z ├ ● /dashboard/sales-runs/[runId]        19.6 kB         292 kB
+2025-10-01T16:15:47.6702829Z ├ ○ /dashboard/settings                  17.9 kB         405 kB
+2025-10-01T16:15:47.6703321Z ├ ○ /dashboard/staff                       151 B         102 kB
+2025-10-01T16:15:47.6704111Z ├ ○ /dashboard/staff/attendance          6.21 kB         385 kB
+2025-10-01T16:15:47.6704626Z ├ ○ /dashboard/staff/management          9.96 kB         276 kB
+2025-10-01T16:15:47.6705147Z ├ ○ /dashboard/staff/payroll             7.38 kB         290 kB
+2025-10-01T16:15:47.6705682Z ├ ○ /dashboard/support                     151 B         102 kB
+2025-10-01T16:15:47.6706169Z ├ ○ /database-tools                      5.77 kB         156 kB
+2025-10-01T16:15:47.6706667Z └ ○ /icon.svg                                0 B            0 B
+2025-10-01T16:15:47.6707068Z + First Load JS shared by all             102 kB
+2025-10-01T16:15:47.6707482Z   ├ chunks/1684-d88a736dbf4dd4a4.js      46.4 kB
+2025-10-01T16:15:47.6707868Z   ├ chunks/4bd1b696-0fff4b5d5b014c04.js  53.2 kB
+2025-10-01T16:15:47.6708244Z   └ other shared chunks (total)          2.01 kB
+2025-10-01T16:15:47.6708441Z 
+2025-10-01T16:15:47.6708447Z 
+2025-10-01T16:15:47.6708650Z ○  (Static)  prerendered as static content
+2025-10-01T16:15:47.6709149Z ●  (SSG)     prerendered as static HTML (uses generateStaticParams)
+2025-10-01T16:15:47.6709650Z 
+2025-10-01T16:15:47.7170732Z ##[group]Run git config --global user.name 'github-actions[bot]'
+2025-10-01T16:15:47.7171237Z [36;1mgit config --global user.name 'github-actions[bot]'[0m
+2025-10-01T16:15:47.7171729Z [36;1mgit config --global user.email 'github-actions[bot]@users.noreply.github.com'[0m
+2025-10-01T16:15:47.7172147Z [36;1mgit add -f ./build[0m
+2025-10-01T16:15:47.7172415Z [36;1mif git diff --staged --quiet; then[0m
+2025-10-01T16:15:47.7172743Z [36;1m  echo "No changes from build to commit."[0m
+2025-10-01T16:15:47.7173036Z [36;1melse[0m
+2025-10-01T16:15:47.7173304Z [36;1m  git commit -m "CI: Add build output [skip ci]"[0m
+2025-10-01T16:15:47.7173995Z [36;1m  git push[0m
+2025-10-01T16:15:47.7174211Z [36;1mfi[0m
+2025-10-01T16:15:47.7207857Z shell: /usr/bin/bash -e {0}
+2025-10-01T16:15:47.7208140Z ##[endgroup]
+2025-10-01T16:15:52.6359616Z [main 6b5bb22] CI: Add build output [skip ci]
+2025-10-01T16:15:52.6360317Z  352 files changed, 6168 insertions(+)
+2025-10-01T16:15:52.6360907Z  create mode 100644 build/BUILD_ID
+2025-10-01T16:15:52.6361479Z  create mode 100644 build/app-build-manifest.json
+2025-10-01T16:15:52.6362169Z  create mode 100644 build/app-path-routes-manifest.json
+2025-10-01T16:15:52.6362814Z  create mode 100644 build/build-manifest.json
+2025-10-01T16:15:52.6363376Z  create mode 100644 build/cache/.rscinfo
+2025-10-01T16:15:52.6364113Z  create mode 100644 build/cache/config.json
+2025-10-01T16:15:52.6364814Z  create mode 100644 build/cache/webpack/client-production/0.pack
+2025-10-01T16:15:52.6365675Z  create mode 100644 build/cache/webpack/client-production/index.pack
+2025-10-01T16:15:52.6366552Z  create mode 100644 build/cache/webpack/edge-server-production/0.pack
+2025-10-01T16:15:52.6367349Z  create mode 100644 build/cache/webpack/edge-server-production/index.pack
+2025-10-01T16:15:52.6368213Z  create mode 100644 build/cache/webpack/server-production/0.pack
+2025-10-01T16:15:52.6369051Z  create mode 100644 build/cache/webpack/server-production/index.pack
+2025-10-01T16:15:52.6369976Z  create mode 100644 build/diagnostics/build-diagnostics.json
+2025-10-01T16:15:52.6370738Z  create mode 100644 build/diagnostics/framework.json
+2025-10-01T16:15:52.6371386Z  create mode 100644 build/export-marker.json
+2025-10-01T16:15:52.6371995Z  create mode 100644 build/images-manifest.json
+2025-10-01T16:15:52.6372686Z  create mode 100644 build/next-minimal-server.js.nft.json
+2025-10-01T16:15:52.6373373Z  create mode 100644 build/next-server.js.nft.json
+2025-10-01T16:15:52.6374248Z  create mode 100644 build/package.json
+2025-10-01T16:15:52.6374840Z  create mode 100644 build/prerender-manifest.json
+2025-10-01T16:15:52.6375509Z  create mode 100644 build/react-loadable-manifest.json
+2025-10-01T16:15:52.6376217Z  create mode 100644 build/required-server-files.json
+2025-10-01T16:15:52.6376857Z  create mode 100644 build/routes-manifest.json
+2025-10-01T16:15:52.6377537Z  create mode 100644 build/server/app-paths-manifest.json
+2025-10-01T16:15:52.6378246Z  create mode 100644 build/server/app/_not-found.html
+2025-10-01T16:15:52.6378912Z  create mode 100644 build/server/app/_not-found.meta
+2025-10-01T16:15:52.6379559Z  create mode 100644 build/server/app/_not-found.rsc
+2025-10-01T16:15:52.6380244Z  create mode 100644 build/server/app/_not-found/page.js
+2025-10-01T16:15:52.6380873Z  create mode 100644 build/server/app/_not-found/page.js.nft.json
+2025-10-01T16:15:52.6381411Z  create mode 100644 build/server/app/_not-found/page_client-reference-manifest.js
+2025-10-01T16:15:52.6381899Z  create mode 100644 build/server/app/dashboard.html
+2025-10-01T16:15:52.6382261Z  create mode 100644 build/server/app/dashboard.meta
+2025-10-01T16:15:52.6382623Z  create mode 100644 build/server/app/dashboard.rsc
+2025-10-01T16:15:52.6383250Z  create mode 100644 build/server/app/dashboard/accounting.html
+2025-10-01T16:15:52.6384248Z  create mode 100644 build/server/app/dashboard/accounting.meta
+2025-10-01T16:15:52.6385024Z  create mode 100644 build/server/app/dashboard/accounting.rsc
+2025-10-01T16:15:52.6386311Z  create mode 100644 build/server/app/dashboard/accounting/page.js
+2025-10-01T16:15:52.6386851Z  create mode 100644 build/server/app/dashboard/accounting/page.js.nft.json
+2025-10-01T16:15:52.6387474Z  create mode 100644 build/server/app/dashboard/accounting/page_client-reference-manifest.js
+2025-10-01T16:15:52.6388059Z  create mode 100644 build/server/app/dashboard/communication.html
+2025-10-01T16:15:52.6388510Z  create mode 100644 build/server/app/dashboard/communication.meta
+2025-10-01T16:15:52.6389233Z  create mode 100644 build/server/app/dashboard/communication.rsc
+2025-10-01T16:15:52.6389710Z  create mode 100644 build/server/app/dashboard/communication/page.js
+2025-10-01T16:15:52.6390225Z  create mode 100644 build/server/app/dashboard/communication/page.js.nft.json
+2025-10-01T16:15:52.6390855Z  create mode 100644 build/server/app/dashboard/communication/page_client-reference-manifest.js
+2025-10-01T16:15:52.6391456Z  create mode 100644 build/server/app/dashboard/customers/profiles.html
+2025-10-01T16:15:52.6391958Z  create mode 100644 build/server/app/dashboard/customers/profiles.meta
+2025-10-01T16:15:52.6392445Z  create mode 100644 build/server/app/dashboard/customers/profiles.rsc
+2025-10-01T16:15:52.6392941Z  create mode 100644 build/server/app/dashboard/customers/profiles/page.js
+2025-10-01T16:15:52.6393750Z  create mode 100644 build/server/app/dashboard/customers/profiles/page.js.nft.json
+2025-10-01T16:15:52.6394592Z  create mode 100644 build/server/app/dashboard/customers/profiles/page_client-reference-manifest.js
+2025-10-01T16:15:52.6395210Z  create mode 100644 build/server/app/dashboard/database-tools.html
+2025-10-01T16:15:52.6395691Z  create mode 100644 build/server/app/dashboard/database-tools.meta
+2025-10-01T16:15:52.6396154Z  create mode 100644 build/server/app/dashboard/database-tools.rsc
+2025-10-01T16:15:52.6396629Z  create mode 100644 build/server/app/dashboard/database-tools/page.js
+2025-10-01T16:15:52.6397152Z  create mode 100644 build/server/app/dashboard/database-tools/page.js.nft.json
+2025-10-01T16:15:52.6397817Z  create mode 100644 build/server/app/dashboard/database-tools/page_client-reference-manifest.js
+2025-10-01T16:15:52.6398395Z  create mode 100644 build/server/app/dashboard/deliveries.html
+2025-10-01T16:15:52.6398828Z  create mode 100644 build/server/app/dashboard/deliveries.meta
+2025-10-01T16:15:52.6399256Z  create mode 100644 build/server/app/dashboard/deliveries.rsc
+2025-10-01T16:15:52.6399701Z  create mode 100644 build/server/app/dashboard/deliveries/page.js
+2025-10-01T16:15:52.6400191Z  create mode 100644 build/server/app/dashboard/deliveries/page.js.nft.json
+2025-10-01T16:15:52.6400794Z  create mode 100644 build/server/app/dashboard/deliveries/page_client-reference-manifest.js
+2025-10-01T16:15:52.6401376Z  create mode 100644 build/server/app/dashboard/documentation.html
+2025-10-01T16:15:52.6401910Z  create mode 100644 build/server/app/dashboard/documentation.meta
+2025-10-01T16:15:52.6402358Z  create mode 100644 build/server/app/dashboard/documentation.rsc
+2025-10-01T16:15:52.6402833Z  create mode 100644 build/server/app/dashboard/documentation/page.js
+2025-10-01T16:15:52.6403346Z  create mode 100644 build/server/app/dashboard/documentation/page.js.nft.json
+2025-10-01T16:15:52.6404204Z  create mode 100644 build/server/app/dashboard/documentation/page_client-reference-manifest.js
+2025-10-01T16:15:52.6404821Z  create mode 100644 build/server/app/dashboard/inventory/ingredients.html
+2025-10-01T16:15:52.6405341Z  create mode 100644 build/server/app/dashboard/inventory/ingredients.meta
+2025-10-01T16:15:52.6405857Z  create mode 100644 build/server/app/dashboard/inventory/ingredients.rsc
+2025-10-01T16:15:52.6406380Z  create mode 100644 build/server/app/dashboard/inventory/ingredients/page.js
+2025-10-01T16:15:52.6406962Z  create mode 100644 build/server/app/dashboard/inventory/ingredients/page.js.nft.json
+2025-10-01T16:15:52.6407654Z  create mode 100644 build/server/app/dashboard/inventory/ingredients/page_client-reference-manifest.js
+2025-10-01T16:15:52.6408595Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies.html
+2025-10-01T16:15:52.6409138Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies.meta
+2025-10-01T16:15:52.6409671Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies.rsc
+2025-10-01T16:15:52.6410779Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies/page.js
+2025-10-01T16:15:52.6411893Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies/page.js.nft.json
+2025-10-01T16:15:52.6412862Z  create mode 100644 build/server/app/dashboard/inventory/other-supplies/page_client-reference-manifest.js
+2025-10-01T16:15:52.6413779Z  create mode 100644 build/server/app/dashboard/inventory/products.html
+2025-10-01T16:15:52.6414421Z  create mode 100644 build/server/app/dashboard/inventory/products.meta
+2025-10-01T16:15:52.6414915Z  create mode 100644 build/server/app/dashboard/inventory/products.rsc
+2025-10-01T16:15:52.6415411Z  create mode 100644 build/server/app/dashboard/inventory/products/page.js
+2025-10-01T16:15:52.6415987Z  create mode 100644 build/server/app/dashboard/inventory/products/page.js.nft.json
+2025-10-01T16:15:52.6416663Z  create mode 100644 build/server/app/dashboard/inventory/products/page_client-reference-manifest.js
+2025-10-01T16:15:52.6417272Z  create mode 100644 build/server/app/dashboard/inventory/recipes.html
+2025-10-01T16:15:52.6417756Z  create mode 100644 build/server/app/dashboard/inventory/recipes.meta
+2025-10-01T16:15:52.6418234Z  create mode 100644 build/server/app/dashboard/inventory/recipes.rsc
+2025-10-01T16:15:52.6418726Z  create mode 100644 build/server/app/dashboard/inventory/recipes/page.js
+2025-10-01T16:15:52.6419276Z  create mode 100644 build/server/app/dashboard/inventory/recipes/page.js.nft.json
+2025-10-01T16:15:52.6419947Z  create mode 100644 build/server/app/dashboard/inventory/recipes/page_client-reference-manifest.js
+2025-10-01T16:15:52.6420581Z  create mode 100644 build/server/app/dashboard/inventory/stock--control.html
+2025-10-01T16:15:52.6421130Z  create mode 100644 build/server/app/dashboard/inventory/stock--control.meta
+2025-10-01T16:15:52.6421655Z  create mode 100644 build/server/app/dashboard/inventory/stock--control.rsc
+2025-10-01T16:15:52.6422208Z  create mode 100644 build/server/app/dashboard/inventory/stock--control/page.js
+2025-10-01T16:15:52.6422806Z  create mode 100644 build/server/app/dashboard/inventory/stock--control/page.js.nft.json
+2025-10-01T16:15:52.6423704Z  create mode 100644 build/server/app/dashboard/inventory/stock--control/page_client-reference-manifest.js
+2025-10-01T16:15:52.6424369Z  create mode 100644 build/server/app/dashboard/inventory/stock-control.html
+2025-10-01T16:15:52.6424903Z  create mode 100644 build/server/app/dashboard/inventory/stock-control.meta
+2025-10-01T16:15:52.6425432Z  create mode 100644 build/server/app/dashboard/inventory/stock-control.rsc
+2025-10-01T16:15:52.6425971Z  create mode 100644 build/server/app/dashboard/inventory/stock-control/page.js
+2025-10-01T16:15:52.6426584Z  create mode 100644 build/server/app/dashboard/inventory/stock-control/page.js.nft.json
+2025-10-01T16:15:52.6427297Z  create mode 100644 build/server/app/dashboard/inventory/stock-control/page_client-reference-manifest.js
+2025-10-01T16:15:52.6427940Z  create mode 100644 build/server/app/dashboard/inventory/suppliers.html
+2025-10-01T16:15:52.6428435Z  create mode 100644 build/server/app/dashboard/inventory/suppliers.meta
+2025-10-01T16:15:52.6428942Z  create mode 100644 build/server/app/dashboard/inventory/suppliers.rsc
+2025-10-01T16:15:52.6429448Z  create mode 100644 build/server/app/dashboard/inventory/suppliers/page.js
+2025-10-01T16:15:52.6430012Z  create mode 100644 build/server/app/dashboard/inventory/suppliers/page.js.nft.json
+2025-10-01T16:15:52.6430690Z  create mode 100644 build/server/app/dashboard/inventory/suppliers/page_client-reference-manifest.js
+2025-10-01T16:15:52.6431322Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs.html
+2025-10-01T16:15:52.6431827Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs.meta
+2025-10-01T16:15:52.6432628Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs.rsc
+2025-10-01T16:15:52.6433143Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs/page.js
+2025-10-01T16:15:52.6434090Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs/page.js.nft.json
+2025-10-01T16:15:52.6434814Z  create mode 100644 build/server/app/dashboard/inventory/waste-logs/page_client-reference-manifest.js
+2025-10-01T16:15:52.6435421Z  create mode 100644 build/server/app/dashboard/orders/regular.html
+2025-10-01T16:15:52.6435894Z  create mode 100644 build/server/app/dashboard/orders/regular.meta
+2025-10-01T16:15:52.6436384Z  create mode 100644 build/server/app/dashboard/orders/regular.rsc
+2025-10-01T16:15:52.6436861Z  create mode 100644 build/server/app/dashboard/orders/regular/page.js
+2025-10-01T16:15:52.6437381Z  create mode 100644 build/server/app/dashboard/orders/regular/page.js.nft.json
+2025-10-01T16:15:52.6438356Z  create mode 100644 build/server/app/dashboard/orders/regular/page_client-reference-manifest.js
+2025-10-01T16:15:52.6439373Z  create mode 100644 build/server/app/dashboard/page.js
+2025-10-01T16:15:52.6440168Z  create mode 100644 build/server/app/dashboard/page.js.nft.json
+2025-10-01T16:15:52.6440703Z  create mode 100644 build/server/app/dashboard/page_client-reference-manifest.js
+2025-10-01T16:15:52.6441193Z  create mode 100644 build/server/app/dashboard/pos.html
+2025-10-01T16:15:52.6441582Z  create mode 100644 build/server/app/dashboard/pos.meta
+2025-10-01T16:15:52.6441961Z  create mode 100644 build/server/app/dashboard/pos.rsc
+2025-10-01T16:15:52.6442361Z  create mode 100644 build/server/app/dashboard/pos/page.js
+2025-10-01T16:15:52.6442810Z  create mode 100644 build/server/app/dashboard/pos/page.js.nft.json
+2025-10-01T16:15:52.6443357Z  create mode 100644 build/server/app/dashboard/pos/page_client-reference-manifest.js
+2025-10-01T16:15:52.6444395Z  create mode 100644 build/server/app/dashboard/promotions.html
+2025-10-01T16:15:52.6445162Z  create mode 100644 build/server/app/dashboard/promotions.meta
+2025-10-01T16:15:52.6445924Z  create mode 100644 build/server/app/dashboard/promotions.rsc
+2025-10-01T16:15:52.6446770Z  create mode 100644 build/server/app/dashboard/promotions/page.js
+2025-10-01T16:15:52.6447409Z  create mode 100644 build/server/app/dashboard/promotions/page.js.nft.json
+2025-10-01T16:15:52.6448106Z  create mode 100644 build/server/app/dashboard/promotions/page_client-reference-manifest.js
+2025-10-01T16:15:52.6448706Z  create mode 100644 build/server/app/dashboard/sales-runs/[runId]/page.js
+2025-10-01T16:15:52.6449254Z  create mode 100644 build/server/app/dashboard/sales-runs/[runId]/page.js.nft.json
+2025-10-01T16:15:52.6449917Z  create mode 100644 build/server/app/dashboard/sales-runs/[runId]/page_client-reference-manifest.js
+2025-10-01T16:15:52.6450491Z  create mode 100644 build/server/app/dashboard/settings.html
+2025-10-01T16:15:52.6450920Z  create mode 100644 build/server/app/dashboard/settings.meta
+2025-10-01T16:15:52.6451344Z  create mode 100644 build/server/app/dashboard/settings.rsc
+2025-10-01T16:15:52.6451779Z  create mode 100644 build/server/app/dashboard/settings/page.js
+2025-10-01T16:15:52.6452271Z  create mode 100644 build/server/app/dashboard/settings/page.js.nft.json
+2025-10-01T16:15:52.6452871Z  create mode 100644 build/server/app/dashboard/settings/page_client-reference-manifest.js
+2025-10-01T16:15:52.6453396Z  create mode 100644 build/server/app/dashboard/staff.html
+2025-10-01T16:15:52.6454011Z  create mode 100644 build/server/app/dashboard/staff.meta
+2025-10-01T16:15:52.6454415Z  create mode 100644 build/server/app/dashboard/staff.rsc
+2025-10-01T16:15:52.6454855Z  create mode 100644 build/server/app/dashboard/staff/attendance.html
+2025-10-01T16:15:52.6455342Z  create mode 100644 build/server/app/dashboard/staff/attendance.meta
+2025-10-01T16:15:52.6455814Z  create mode 100644 build/server/app/dashboard/staff/attendance.rsc
+2025-10-01T16:15:52.6456304Z  create mode 100644 build/server/app/dashboard/staff/attendance/page.js
+2025-10-01T16:15:52.6457123Z  create mode 100644 build/server/app/dashboard/staff/attendance/page.js.nft.json
+2025-10-01T16:15:52.6457793Z  create mode 100644 build/server/app/dashboard/staff/attendance/page_client-reference-manifest.js
+2025-10-01T16:15:52.6458392Z  create mode 100644 build/server/app/dashboard/staff/management.html
+2025-10-01T16:15:52.6458865Z  create mode 100644 build/server/app/dashboard/staff/management.meta
+2025-10-01T16:15:52.6459327Z  create mode 100644 build/server/app/dashboard/staff/management.rsc
+2025-10-01T16:15:52.6459814Z  create mode 100644 build/server/app/dashboard/staff/management/page.js
+2025-10-01T16:15:52.6460359Z  create mode 100644 build/server/app/dashboard/staff/management/page.js.nft.json
+2025-10-01T16:15:52.6461011Z  create mode 100644 build/server/app/dashboard/staff/management/page_client-reference-manifest.js
+2025-10-01T16:15:52.6461583Z  create mode 100644 build/server/app/dashboard/staff/page.js
+2025-10-01T16:15:52.6462050Z  create mode 100644 build/server/app/dashboard/staff/page.js.nft.json
+2025-10-01T16:15:52.6462658Z  create mode 100644 build/server/app/dashboard/staff/page_client-reference-manifest.js
+2025-10-01T16:15:52.6463825Z  create mode 100644 build/server/app/dashboard/staff/payroll.html
+2025-10-01T16:15:52.6464319Z  create mode 100644 build/server/app/dashboard/staff/payroll.meta
+2025-10-01T16:15:52.6464766Z  create mode 100644 build/server/app/dashboard/staff/payroll.rsc
+2025-10-01T16:15:52.6465236Z  create mode 100644 build/server/app/dashboard/staff/payroll/page.js
+2025-10-01T16:15:52.6465753Z  create mode 100644 build/server/app/dashboard/staff/payroll/page.js.nft.json
+2025-10-01T16:15:52.6466395Z  create mode 100644 build/server/app/dashboard/staff/payroll/page_client-reference-manifest.js
+2025-10-01T16:15:52.6466953Z  create mode 100644 build/server/app/dashboard/support.html
+2025-10-01T16:15:52.6467372Z  create mode 100644 build/server/app/dashboard/support.meta
+2025-10-01T16:15:52.6467786Z  create mode 100644 build/server/app/dashboard/support.rsc
+2025-10-01T16:15:52.6468221Z  create mode 100644 build/server/app/dashboard/support/page.js
+2025-10-01T16:15:52.6468695Z  create mode 100644 build/server/app/dashboard/support/page.js.nft.json
+2025-10-01T16:15:52.6469265Z  create mode 100644 build/server/app/dashboard/support/page_client-reference-manifest.js
+2025-10-01T16:15:52.6470086Z  create mode 100644 build/server/app/database-tools.html
+2025-10-01T16:15:52.6470664Z  create mode 100644 build/server/app/database-tools.meta
+2025-10-01T16:15:52.6471064Z  create mode 100644 build/server/app/database-tools.rsc
+2025-10-01T16:15:52.6471465Z  create mode 100644 build/server/app/database-tools/page.js
+2025-10-01T16:15:52.6471921Z  create mode 100644 build/server/app/database-tools/page.js.nft.json
+2025-10-01T16:15:52.6472478Z  create mode 100644 build/server/app/database-tools/page_client-reference-manifest.js
+2025-10-01T16:15:52.6472985Z  create mode 100644 build/server/app/favicon.ico.body
+2025-10-01T16:15:52.6473367Z  create mode 100644 build/server/app/favicon.ico.meta
+2025-10-01T16:15:52.6473993Z  create mode 100644 build/server/app/favicon.ico/route.js
+2025-10-01T16:15:52.6474439Z  create mode 100644 build/server/app/favicon.ico/route.js.nft.json
+2025-10-01T16:15:52.6474854Z  create mode 100644 build/server/app/icon.svg.body
+2025-10-01T16:15:52.6475215Z  create mode 100644 build/server/app/icon.svg.meta
+2025-10-01T16:15:52.6475582Z  create mode 100644 build/server/app/icon.svg/route.js
+2025-10-01T16:15:52.6476000Z  create mode 100644 build/server/app/icon.svg/route.js.nft.json
+2025-10-01T16:15:52.6476411Z  create mode 100644 build/server/app/index.html
+2025-10-01T16:15:52.6476756Z  create mode 100644 build/server/app/index.meta
+2025-10-01T16:15:52.6477095Z  create mode 100644 build/server/app/index.rsc
+2025-10-01T16:15:52.6477437Z  create mode 100644 build/server/app/page.js
+2025-10-01T16:15:52.6477791Z  create mode 100644 build/server/app/page.js.nft.json
+2025-10-01T16:15:52.6478240Z  create mode 100644 build/server/app/page_client-reference-manifest.js
+2025-10-01T16:15:52.6478941Z  create mode 100644 build/server/chunks/1414.js
+2025-10-01T16:15:52.6479288Z  create mode 100644 build/server/chunks/167.js
+2025-10-01T16:15:52.6479637Z  create mode 100644 build/server/chunks/3420.js
+2025-10-01T16:15:52.6479991Z  create mode 100644 build/server/chunks/3437.js
+2025-10-01T16:15:52.6480330Z  create mode 100644 build/server/chunks/3904.js
+2025-10-01T16:15:52.6480661Z  create mode 100644 build/server/chunks/3954.js
+2025-10-01T16:15:52.6480998Z  create mode 100644 build/server/chunks/4047.js
+2025-10-01T16:15:52.6481330Z  create mode 100644 build/server/chunks/4256.js
+2025-10-01T16:15:52.6481664Z  create mode 100644 build/server/chunks/4447.js
+2025-10-01T16:15:52.6481992Z  create mode 100644 build/server/chunks/5241.js
+2025-10-01T16:15:52.6482325Z  create mode 100644 build/server/chunks/5400.js
+2025-10-01T16:15:52.6482656Z  create mode 100644 build/server/chunks/580.js
+2025-10-01T16:15:52.6482995Z  create mode 100644 build/server/chunks/5868.js
+2025-10-01T16:15:52.6483356Z  create mode 100644 build/server/chunks/6261.js
+2025-10-01T16:15:52.6483883Z  create mode 100644 build/server/chunks/6514.js
+2025-10-01T16:15:52.6484222Z  create mode 100644 build/server/chunks/656.js
+2025-10-01T16:15:52.6484557Z  create mode 100644 build/server/chunks/6593.js
+2025-10-01T16:15:52.6484891Z  create mode 100644 build/server/chunks/6873.js
+2025-10-01T16:15:52.6485222Z  create mode 100644 build/server/chunks/712.js
+2025-10-01T16:15:52.6485554Z  create mode 100644 build/server/chunks/7300.js
+2025-10-01T16:15:52.6485888Z  create mode 100644 build/server/chunks/8186.js
+2025-10-01T16:15:52.6486217Z  create mode 100644 build/server/chunks/8548.js
+2025-10-01T16:15:52.6486552Z  create mode 100644 build/server/chunks/8805.js
+2025-10-01T16:15:52.6486884Z  create mode 100644 build/server/chunks/9025.js
+2025-10-01T16:15:52.6487219Z  create mode 100644 build/server/chunks/9069.js
+2025-10-01T16:15:52.6487548Z  create mode 100644 build/server/chunks/9225.js
+2025-10-01T16:15:52.6487965Z  create mode 100644 build/server/functions-config-manifest.json
+2025-10-01T16:15:52.6488466Z  create mode 100644 build/server/interception-route-rewrite-manifest.js
+2025-10-01T16:15:52.6488955Z  create mode 100644 build/server/middleware-build-manifest.js
+2025-10-01T16:15:52.6489387Z  create mode 100644 build/server/middleware-manifest.json
+2025-10-01T16:15:52.6489858Z  create mode 100644 build/server/middleware-react-loadable-manifest.js
+2025-10-01T16:15:52.6490310Z  create mode 100644 build/server/next-font-manifest.js
+2025-10-01T16:15:52.6490708Z  create mode 100644 build/server/next-font-manifest.json
+2025-10-01T16:15:52.6491101Z  create mode 100644 build/server/pages-manifest.json
+2025-10-01T16:15:52.6491459Z  create mode 100644 build/server/pages/404.html
+2025-10-01T16:15:52.6491803Z  create mode 100644 build/server/pages/500.html
+2025-10-01T16:15:52.6492143Z  create mode 100644 build/server/pages/_app.js
+2025-10-01T16:15:52.6492513Z  create mode 100644 build/server/pages/_app.js.nft.json
+2025-10-01T16:15:52.6492905Z  create mode 100644 build/server/pages/_document.js
+2025-10-01T16:15:52.6493306Z  create mode 100644 build/server/pages/_document.js.nft.json
+2025-10-01T16:15:52.6493864Z  create mode 100644 build/server/pages/_error.js
+2025-10-01T16:15:52.6494245Z  create mode 100644 build/server/pages/_error.js.nft.json
+2025-10-01T16:15:52.6494672Z  create mode 100644 build/server/server-reference-manifest.js
+2025-10-01T16:15:52.6495118Z  create mode 100644 build/server/server-reference-manifest.json
+2025-10-01T16:15:52.6495531Z  create mode 100644 build/server/webpack-runtime.js
+2025-10-01T16:15:52.6495938Z  create mode 100644 build/static/chunks/1298-8d9f1ad7b833e98f.js
+2025-10-01T16:15:52.6496376Z  create mode 100644 build/static/chunks/1326-0484f9bcf1bad99d.js
+2025-10-01T16:15:52.6496809Z  create mode 100644 build/static/chunks/1562-181e64be8d25fe0f.js
+2025-10-01T16:15:52.6497239Z  create mode 100644 build/static/chunks/1684-d88a736dbf4dd4a4.js
+2025-10-01T16:15:52.6497674Z  create mode 100644 build/static/chunks/1897-df7db9fab6cc2c30.js
+2025-10-01T16:15:52.6498334Z  create mode 100644 build/static/chunks/2904-44d3fdab48c57e30.js
+2025-10-01T16:15:52.6498769Z  create mode 100644 build/static/chunks/3013-892bc7544c7199cc.js
+2025-10-01T16:15:52.6499198Z  create mode 100644 build/static/chunks/3015-3b32a6c3ff785604.js
+2025-10-01T16:15:52.6499625Z  create mode 100644 build/static/chunks/3031-186ff41180d85170.js
+2025-10-01T16:15:52.6500048Z  create mode 100644 build/static/chunks/3248-786373dadfd27188.js
+2025-10-01T16:15:52.6500471Z  create mode 100644 build/static/chunks/3421-f96ae7d5bb208474.js
+2025-10-01T16:15:52.6500905Z  create mode 100644 build/static/chunks/3783-0c6fbc0263819004.js
+2025-10-01T16:15:52.6501331Z  create mode 100644 build/static/chunks/3919-2dce2c47e7847f93.js
+2025-10-01T16:15:52.6501761Z  create mode 100644 build/static/chunks/3958-2d9fb0f2e4d7eb90.js
+2025-10-01T16:15:52.6502185Z  create mode 100644 build/static/chunks/4134-d78282868175fb08.js
+2025-10-01T16:15:52.6502614Z  create mode 100644 build/static/chunks/4194-70e6765ee602f9bc.js
+2025-10-01T16:15:52.6503052Z  create mode 100644 build/static/chunks/4434-b58c13a1bead45f7.js
+2025-10-01T16:15:52.6503667Z  create mode 100644 build/static/chunks/4502-f430bd66d2a34b5a.js
+2025-10-01T16:15:52.6504112Z  create mode 100644 build/static/chunks/4573-4d67b1019d646094.js
+2025-10-01T16:15:52.6504567Z  create mode 100644 build/static/chunks/4bd1b696-0fff4b5d5b014c04.js
+2025-10-01T16:15:52.6505010Z  create mode 100644 build/static/chunks/516.18b789fbb93eb1e7.js
+2025-10-01T16:15:52.6505432Z  create mode 100644 build/static/chunks/5204-a8e32fb3416f79a8.js
+2025-10-01T16:15:52.6505857Z  create mode 100644 build/static/chunks/5385-bb8c28af5565225c.js
+2025-10-01T16:15:52.6506281Z  create mode 100644 build/static/chunks/5516-13b9f222dc2f22cb.js
+2025-10-01T16:15:52.6506710Z  create mode 100644 build/static/chunks/5660-be1d5b3fbc60b21e.js
+2025-10-01T16:15:52.6507134Z  create mode 100644 build/static/chunks/5769-64f6b518270135df.js
+2025-10-01T16:15:52.6507565Z  create mode 100644 build/static/chunks/6333-e195eed4838c743b.js
+2025-10-01T16:15:52.6507985Z  create mode 100644 build/static/chunks/654-295879104c536353.js
+2025-10-01T16:15:52.6508410Z  create mode 100644 build/static/chunks/7193-425d41cadb208f1a.js
+2025-10-01T16:15:52.6508830Z  create mode 100644 build/static/chunks/7276-33deba3dc772e71a.js
+2025-10-01T16:15:52.6509261Z  create mode 100644 build/static/chunks/8599-6d7fb33d187d881d.js
+2025-10-01T16:15:52.6509685Z  create mode 100644 build/static/chunks/8777-cf72a55216983c65.js
+2025-10-01T16:15:52.6510108Z  create mode 100644 build/static/chunks/8803-c47c26d1b33fe390.js
+2025-10-01T16:15:52.6510535Z  create mode 100644 build/static/chunks/9401-f307717779d5c6b0.js
+2025-10-01T16:15:52.6510953Z  create mode 100644 build/static/chunks/9582-b9b838b43e8f0cd6.js
+2025-10-01T16:15:52.6511409Z  create mode 100644 build/static/chunks/aaea2bcf-fd009350e6f90d73.js
+2025-10-01T16:15:52.6511927Z  create mode 100644 build/static/chunks/app/_not-found/page-f24db53ce15db9a4.js
+2025-10-01T16:15:52.6512557Z  create mode 100644 build/static/chunks/app/dashboard/accounting/page-dbe08374d89aa0f4.js
+2025-10-01T16:15:52.6513218Z  create mode 100644 build/static/chunks/app/dashboard/communication/page-99c050adfa9f2675.js
+2025-10-01T16:15:52.6514099Z  create mode 100644 build/static/chunks/app/dashboard/customers/profiles/page-10e6eeffc9607d64.js
+2025-10-01T16:15:52.6514799Z  create mode 100644 build/static/chunks/app/dashboard/database-tools/page-084d74cbb91aac00.js
+2025-10-01T16:15:52.6515457Z  create mode 100644 build/static/chunks/app/dashboard/deliveries/page-b39d64a5aeb18f7a.js
+2025-10-01T16:15:52.6516115Z  create mode 100644 build/static/chunks/app/dashboard/documentation/page-aa4ae79163d04e06.js
+2025-10-01T16:15:52.6516825Z  create mode 100644 build/static/chunks/app/dashboard/inventory/ingredients/page-c69bbf1855d86bf5.js
+2025-10-01T16:15:52.6517576Z  create mode 100644 build/static/chunks/app/dashboard/inventory/other-supplies/page-dbb02fcc2ef5abe6.js
+2025-10-01T16:15:52.6519443Z  create mode 100644 build/static/chunks/app/dashboard/inventory/products/page-e1d926e56ca48f71.js
+2025-10-01T16:15:52.6520340Z  create mode 100644 build/static/chunks/app/dashboard/inventory/recipes/page-6d468cf864e25fb7.js
+2025-10-01T16:15:52.6521097Z  create mode 100644 build/static/chunks/app/dashboard/inventory/stock--control/page-228f3e32a70ffd28.js
+2025-10-01T16:15:52.6521856Z  create mode 100644 build/static/chunks/app/dashboard/inventory/stock-control/page-8d3e959514e388dd.js
+2025-10-01T16:15:52.6522594Z  create mode 100644 build/static/chunks/app/dashboard/inventory/suppliers/page-6b1ef9ce818f42f8.js
+2025-10-01T16:15:52.6523336Z  create mode 100644 build/static/chunks/app/dashboard/inventory/waste-logs/page-e213325b2cf1ccb3.js
+2025-10-01T16:15:52.6524261Z  create mode 100644 build/static/chunks/app/dashboard/layout-26c5320e216f92ce.js
+2025-10-01T16:15:52.6524904Z  create mode 100644 build/static/chunks/app/dashboard/orders/regular/page-9299dba024af2ded.js
+2025-10-01T16:15:52.6525524Z  create mode 100644 build/static/chunks/app/dashboard/page-8dc2f6cc98a948cd.js
+2025-10-01T16:15:52.6526114Z  create mode 100644 build/static/chunks/app/dashboard/pos/page-fd96c00244bca1e1.js
+2025-10-01T16:15:52.6526733Z  create mode 100644 build/static/chunks/app/dashboard/promotions/page-da631cde6a55dd5e.js
+2025-10-01T16:15:52.6527413Z  create mode 100644 build/static/chunks/app/dashboard/sales-runs/[runId]/page-53401feb6dae3e74.js
+2025-10-01T16:15:52.6528087Z  create mode 100644 build/static/chunks/app/dashboard/settings/page-4173503d2c9e2b40.js
+2025-10-01T16:15:52.6528764Z  create mode 100644 build/static/chunks/app/dashboard/staff/attendance/page-0f5f0483da1a1d7b.js
+2025-10-01T16:15:52.6529458Z  create mode 100644 build/static/chunks/app/dashboard/staff/management/page-c5636b749856a185.js
+2025-10-01T16:15:52.6530104Z  create mode 100644 build/static/chunks/app/dashboard/staff/page-83c601c59ba3602d.js
+2025-10-01T16:15:52.6530743Z  create mode 100644 build/static/chunks/app/dashboard/staff/payroll/page-ac1e94ac03909eb3.js
+2025-10-01T16:15:52.6531401Z  create mode 100644 build/static/chunks/app/dashboard/support/page-216664d1c05294ec.js
+2025-10-01T16:15:52.6532009Z  create mode 100644 build/static/chunks/app/database-tools/layout-5331500dca588da3.js
+2025-10-01T16:15:52.6532605Z  create mode 100644 build/static/chunks/app/database-tools/page-75271dfc116f128b.js
+2025-10-01T16:15:52.6533149Z  create mode 100644 build/static/chunks/app/layout-44615c18a3258a37.js
+2025-10-01T16:15:52.6552483Z  create mode 100644 build/static/chunks/app/not-found-c0a29a391516b290.js
+2025-10-01T16:15:52.6553353Z  create mode 100644 build/static/chunks/app/page-6b36eb497faf3f59.js
+2025-10-01T16:15:52.6554314Z  create mode 100644 build/static/chunks/bc9e92e6-f6b15ffd0879ab23.js
+2025-10-01T16:15:52.6554840Z  create mode 100644 build/static/chunks/framework-2c2be674e67eda3d.js
+2025-10-01T16:15:52.6555345Z  create mode 100644 build/static/chunks/main-app-10997c1fcee60333.js
+2025-10-01T16:15:52.6555823Z  create mode 100644 build/static/chunks/main-c1a8d9b0f1f0813e.js
+2025-10-01T16:15:52.6556315Z  create mode 100644 build/static/chunks/pages/_app-5d1abe03d322390c.js
+2025-10-01T16:15:52.6556818Z  create mode 100644 build/static/chunks/pages/_error-3b2a1d523de49635.js
+2025-10-01T16:15:52.6557310Z  create mode 100644 build/static/chunks/polyfills-42372ed130431b0a.js
+2025-10-01T16:15:52.6557787Z  create mode 100644 build/static/chunks/webpack-bde22861d46abb7e.js
+2025-10-01T16:15:52.6558231Z  create mode 100644 build/static/css/b170ce0da603fe4e.css
+2025-10-01T16:15:52.6558686Z  create mode 100644 build/static/lNaFbJLf_FL2JH0y9IpmU/_buildManifest.js
+2025-10-01T16:15:52.6559190Z  create mode 100644 build/static/lNaFbJLf_FL2JH0y9IpmU/_ssgManifest.js
+2025-10-01T16:15:52.6559569Z  create mode 100644 build/trace
+2025-10-01T16:15:52.6559955Z  create mode 100644 build/types/app/dashboard/accounting/page.ts
+2025-10-01T16:15:52.6560433Z  create mode 100644 build/types/app/dashboard/communication/page.ts
+2025-10-01T16:15:52.6560933Z  create mode 100644 build/types/app/dashboard/customers/profiles/page.ts
+2025-10-01T16:15:52.6561808Z  create mode 100644 build/types/app/dashboard/database-tools/page.ts
+2025-10-01T16:15:52.6562286Z  create mode 100644 build/types/app/dashboard/deliveries/page.ts
+2025-10-01T16:15:52.6562742Z  create mode 100644 build/types/app/dashboard/documentation/page.ts
+2025-10-01T16:15:52.6563243Z  create mode 100644 build/types/app/dashboard/inventory/ingredients/page.ts
+2025-10-01T16:15:52.6564059Z  create mode 100644 build/types/app/dashboard/inventory/other-supplies/page.ts
+2025-10-01T16:15:52.6564606Z  create mode 100644 build/types/app/dashboard/inventory/products/page.ts
+2025-10-01T16:15:52.6565123Z  create mode 100644 build/types/app/dashboard/inventory/recipes/page.ts
+2025-10-01T16:15:52.6565650Z  create mode 100644 build/types/app/dashboard/inventory/stock--control/page.ts
+2025-10-01T16:15:52.6566205Z  create mode 100644 build/types/app/dashboard/inventory/stock-control/page.ts
+2025-10-01T16:15:52.6566742Z  create mode 100644 build/types/app/dashboard/inventory/suppliers/page.ts
+2025-10-01T16:15:52.6567274Z  create mode 100644 build/types/app/dashboard/inventory/waste-logs/page.ts
+2025-10-01T16:15:52.6567773Z  create mode 100644 build/types/app/dashboard/orders/regular/page.ts
+2025-10-01T16:15:52.6568211Z  create mode 100644 build/types/app/dashboard/page.ts
+2025-10-01T16:15:52.6568610Z  create mode 100644 build/types/app/dashboard/pos/page.ts
+2025-10-01T16:15:52.6569039Z  create mode 100644 build/types/app/dashboard/promotions/page.ts
+2025-10-01T16:15:52.6569522Z  create mode 100644 build/types/app/dashboard/sales-runs/[runId]/page.ts
+2025-10-01T16:15:52.6569996Z  create mode 100644 build/types/app/dashboard/settings/page.ts
+2025-10-01T16:15:52.6570465Z  create mode 100644 build/types/app/dashboard/staff/attendance/page.ts
+2025-10-01T16:15:52.6570948Z  create mode 100644 build/types/app/dashboard/staff/management/page.ts
+2025-10-01T16:15:52.6571406Z  create mode 100644 build/types/app/dashboard/staff/page.ts
+2025-10-01T16:15:52.6571854Z  create mode 100644 build/types/app/dashboard/staff/payroll/page.ts
+2025-10-01T16:15:52.6572320Z  create mode 100644 build/types/app/dashboard/support/page.ts
+2025-10-01T16:15:52.6572752Z  create mode 100644 build/types/app/database-tools/layout.ts
+2025-10-01T16:15:52.6573181Z  create mode 100644 build/types/app/database-tools/page.ts
+2025-10-01T16:15:52.6573748Z  create mode 100644 build/types/app/page.ts
+2025-10-01T16:15:52.6574095Z  create mode 100644 build/types/cache-life.d.ts
+2025-10-01T16:15:52.6574444Z  create mode 100644 build/types/package.json
+2025-10-01T16:15:52.8490599Z remote: Permission to gabrielekerete60/bms.git denied to github-actions[bot].
+2025-10-01T16:15:52.8491769Z fatal: unable to access 'https://github.com/gabrielekerete60/bms/': The requested URL returned error: 403
+2025-10-01T16:15:52.8525459Z ##[error]Process completed with exit code 128.
+2025-10-01T16:15:52.8622305Z Post job cleanup.
+2025-10-01T16:15:52.9531482Z [command]/usr/bin/git version
+2025-10-01T16:15:52.9566952Z git version 2.51.0
+2025-10-01T16:15:52.9602981Z Copying '/home/runner/.gitconfig' to '/home/runner/work/_temp/67b98293-f127-4692-804d-99a53b5a79d6/.gitconfig'
+2025-10-01T16:15:52.9613102Z Temporarily overriding HOME='/home/runner/work/_temp/67b98293-f127-4692-804d-99a53b5a79d6' before making global git config changes
+2025-10-01T16:15:52.9614738Z Adding repository directory to the temporary git global config as a safe directory
+2025-10-01T16:15:52.9618428Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bms/bms
+2025-10-01T16:15:52.9658351Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2025-10-01T16:15:52.9689167Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2025-10-01T16:15:52.9951712Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2025-10-01T16:15:52.9972736Z http.https://github.com/.extraheader
+2025-10-01T16:15:52.9985460Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2025-10-01T16:15:53.0015709Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2025-10-01T16:15:53.0352195Z Cleaning up orphan processes

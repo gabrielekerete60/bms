@@ -5,6 +5,10 @@ on:
     branches:
       - main
 
+# Add this block to grant write permissions to the workflow
+permissions:
+  contents: write
+
 jobs:
   build-and-commit:
     runs-on: ubuntu-latest
