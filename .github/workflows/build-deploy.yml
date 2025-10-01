@@ -44,12 +44,6 @@ jobs:
           
         run: npm run build
 
-      - name: Upload .next Folder as Artifact (CRITICAL FIX)
+      - name: Upload .next Folder as Artifact
         # This saves the contents of the .next folder so you can download it.
-        uses: actions/upload-artifact@v4
-        with:
-          name: next-build-output
-          path: .next
-          retention-days: 7
-          # FIX: Explicitly include hidden files like .next/
-          include-hidden-files: true
+        uses: actions/
