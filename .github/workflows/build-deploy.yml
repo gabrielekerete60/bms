@@ -1,4 +1,4 @@
-﻿name: Build and Deploy Next.js App
+﻿name: Build and Upload Artifact
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build_and_save:
+  build_and_upload:
     runs-on: ubuntu-latest
 
     steps:
@@ -22,7 +22,7 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Run Next.js Server Build
+      - name: Run Next.js Build
         run: npm run build
         env:
           NEXT_PUBLIC_FIREBASE_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_API_KEY }}
@@ -32,25 +32,12 @@ jobs:
           NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID }}
           NEXT_PUBLIC_FIREBASE_APP_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_APP_ID }}
           NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID }}
-          
+
           NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY: ${{ secrets.NEXT_PUBLIC_PAYSTACK_PUBLIC_KEY }}
           PAYSTACK_SECRET_KEY: ${{ secrets.PAYSTACK_SECRET_KEY }}
           SEED_PASSWORD: ${{ secrets.SEED_PASSWORD }}
-          
-      # --- NEW DEBUGGING STEPS ---
-      - name: Check for .next folder and create a test file
-        run: |
-          if [ -d ".next" ]; then
-            echo "✅ .next folder found. Attempting to create test file."
-            echo "hello world" > .next/test-file.txt
-          else
-            echo "❌ .next folder NOT found."
-          fi
 
-      - name: List files after creating test file
-        run: ls -R
-
-      - name: Upload .next Folder as Artifact
+      - name: Upload Build Artifact
         uses: actions/upload-artifact@v4
         with:
           name: next-build-output
