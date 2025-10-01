@@ -42,13 +42,10 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          # Use -f to force add the build folder, as it might be in .gitignore
           git add -f ./build
-          # Check if there are any changes to commit
           if git diff --staged --quiet; then
             echo "No changes to commit."
           else
-            # The [skip ci] in the commit message is crucial to prevent an infinite loop of workflows.
             git commit -m "CI: Add build output [skip ci]"
             git push
-          
+          fi
