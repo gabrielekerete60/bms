@@ -1,15 +1,15 @@
 ---
 deployment:
   tasks:
-    # This line activates the correct Node.js version
-    - export PATH=/home/fedz/nodevenv/staff.mealvilla.ng/24/bin:$PATH
+    # CORRECTED PATH with your username 'lifedzrz'
+    - export PATH=/home/lifedzrz/nodevenv/staff.mealvilla.ng/24/bin:$PATH
 
-    # Your "npm install" step
+    # Install project dependencies
     - npm install
 
-    # Your "npm run build" step
+    # Build the Next.js application for production
     - npm run build
 
-    # This restarts your "npm start" process
+    # Restart the server to apply the new changes
     - mkdir -p tmp
     - touch tmp/restart.txt
