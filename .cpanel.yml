@@ -1,0 +1,14 @@
+---
+deployment:
+  tasks:
+    # This line activates the Node.js version you selected in cPanel.
+    - export PATH=/home/fedz/nodevenv/staff.mealvilla.ng/24/bin:$PATH
+
+    # Install all project dependencies
+    - npm install
+
+    # Build the Next.js application for production
+    - npm run build
+
+    # Copy the finished, built files into the main public directory
+    - /bin/cp -R build/. ./
